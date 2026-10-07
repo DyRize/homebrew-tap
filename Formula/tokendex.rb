@@ -3,8 +3,8 @@ class Tokendex < Formula
 
   desc "Local web pages around your PokeTokenBar save"
   homepage "https://github.com/DyRize/TokenDex"
-  url "https://github.com/DyRize/TokenDex/releases/download/v0.1.0-alpha.1/tokendex-0.1.0-alpha.1.tar.gz"
-  sha256 "9f6bef71e6f64965bf5015d53dee9df7602e37765af27be974113454bea95c94"
+  url "https://github.com/DyRize/TokenDex/releases/download/v0.1.0-alpha.2/tokendex-0.1.0-alpha.2.tar.gz"
+  sha256 "f454b1e532d29d8e8bf3ba586039987f36fb6834b64f0dba9a17ef5c8b3f8da6"
   license "MIT"
 
   depends_on :macos
@@ -13,7 +13,6 @@ class Tokendex < Formula
   def install
     libexec.install "serve.py", "dist"
     rewrite_shebang detected_python_shebang, libexec/"serve.py"
-    chmod 0755, libexec/"serve.py"
     (bin/"tokendex").write_env_script libexec/"serve.py", "--open", {}
   end
 
